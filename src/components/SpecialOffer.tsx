@@ -1,21 +1,16 @@
 import React from 'react'
 import { PizzaType } from '../types'
-import { useStateDispatch } from './AppState'
+import { AddToCartProps, WithAddToCart } from './AddToCart'
+
 import SpecialOfferCSS from './SpecialOffer.module.css'
 
-type Props = {
+interface Props extends AddToCartProps {
   pizza: PizzaType
 }
 
-export const SpecialOffer: React.FC<Props> = ({ pizza }) => {
-  const dispatch = useStateDispatch()
+const SpecialOffer: React.FC<Props> = ({ pizza, addToCart }) => {
   const handleAddToCartClick = () => {
-    dispatch({
-      type: 'ADD_TO_CART',
-      payload: {
-        item: { id: pizza.id, name: pizza.name, price: pizza.price },
-      },
-    })
+    addToCart({ id: pizza.id, name: pizza.name, price: pizza.price })
   }
   return (
     <div className={SpecialOfferCSS.container}>
@@ -28,3 +23,5 @@ export const SpecialOffer: React.FC<Props> = ({ pizza }) => {
     </div>
   )
 }
+
+export default WithAddToCart(SpecialOffer)

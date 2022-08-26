@@ -1,12 +1,13 @@
 import React from 'react'
 import pizzas from '../src/data/pizzas.json'
-import { Pizza } from './components/Pizza'
 import AppCSS from './App.module.css'
 import { ReactComponent as PizzaSVG } from '../src/svg/pizza.svg'
 import { Cart } from './components/Cart'
 import { AppStateProvider } from './components/AppState'
-import { SpecialOffer } from './components/SpecialOffer'
+
 import { PizzaType } from './types'
+import Pizza from './components/Pizza'
+import SpecialOffer from './components/SpecialOffer'
 
 const App = () => {
   const legitPizzas = pizzas as PizzaType[]

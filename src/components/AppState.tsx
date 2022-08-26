@@ -1,6 +1,6 @@
 import React, { createContext, PropsWithChildren, useContext, useEffect, useReducer } from 'react'
 
-type CartItem = {
+export type CartItem = {
   id: number
   name: string
   price: number
